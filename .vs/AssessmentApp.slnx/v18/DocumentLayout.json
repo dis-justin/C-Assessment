@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Justin\\Documents\\AssessmentApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D524D6C-1DBC-4FD8-BAAC-9AE5D354DA91}|AssessmentApp\\AssessmentApp.csproj|c:\\users\\justin\\documents\\assessmentapp\\assessmentapp\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D524D6C-1DBC-4FD8-BAAC-9AE5D354DA91}|AssessmentApp\\AssessmentApp.csproj|solutionrelative:assessmentapp\\models\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1D524D6C-1DBC-4FD8-BAAC-9AE5D354DA91}|AssessmentApp\\AssessmentApp.csproj|c:\\users\\justin\\documents\\assessmentapp\\assessmentapp\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1D524D6C-1DBC-4FD8-BAAC-9AE5D354DA91}|AssessmentApp\\AssessmentApp.csproj|solutionrelative:assessmentapp\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\Justin\\Documents\\AssessmentApp\\AssessmentApp\\Models\\Event.cs",
+              "RelativeDocumentMoniker": "AssessmentApp\\Models\\Event.cs",
+              "ToolTip": "C:\\Users\\Justin\\Documents\\AssessmentApp\\AssessmentApp\\Models\\Event.cs",
+              "RelativeToolTip": "AssessmentApp\\Models\\Event.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-02T12:54:21.355Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "C:\\Users\\Justin\\Documents\\AssessmentApp\\AssessmentApp\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "AssessmentApp\\Controllers\\EventsController.cs",
+              "ToolTip": "C:\\Users\\Justin\\Documents\\AssessmentApp\\AssessmentApp\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "AssessmentApp\\Controllers\\EventsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-01T17:13:40.017Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
