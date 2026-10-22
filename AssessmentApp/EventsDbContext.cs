@@ -66,23 +66,17 @@
                 entity.Property(e => e.IsDeleted)
                     .HasDefaultValue(false);
 
+                // Many-to-one:
+                // Many Events belong to one Location.
+                entity.HasOne(e => e.Location)
+                    .WithMany(l => l.Events)
+                    .HasForeignKey(e => e.LocationId)
+                    .OnDelete(DeleteBehavior.Restrict);
 
-                // TODO: Configure the many-to-one relationship between Event and Location using Fluent API.
-                // Requirements:
-                // - Specify that each Event has one Location.
-                // - Use e => e.Location to reference the Location navigation property on Event.
-                // - Specify that one Location can have many Events.
-                // - Specify that Event.LocationId is the foreign key.
-                // - Specify the DeleteBehavior to prevent deleting a Location if Events still reference it.
-                //
-                // - This relationship represents:
-                //   Many Events belong to one Location.
-                //   One Location can have many Events.
-
-
-
+                // Optional: useful for searching/sorting by name.
                 entity.HasIndex(e => e.Name);
 
+                // Optional: useful if you frequently filter active events.
                 entity.HasIndex(e => e.IsActive);
             });
         }
@@ -159,8 +153,10 @@
                     .HasForeignKey(ed => ed.EventId)
                     .OnDelete(DeleteBehavior.Cascade);
 
+                // Useful for finding all dates for an event.
                 entity.HasIndex(ed => ed.EventId);
 
+                // Useful for sorting/filtering by date.
                 entity.HasIndex(ed => ed.StartDateTimeUtc);
             });
         }
@@ -191,13 +187,9 @@
                 entity.Property(u => u.IsDeleted)
                     .HasDefaultValue(false);
 
-                // TODO: Configure a unique index on the User Email property using Fluent API.
-                // Requirements:
-                // - Create an index on the Email property.
-                // - Specify that the email must be unique so no duplicates can exist
-
-
-
+                // Email should usually be unique.
+                entity.HasIndex(u => u.Email)
+                    .IsUnique();
             });
         }
 
@@ -226,6 +218,7 @@
                 entity.Property(er => er.IsDeleted)
                     .HasDefaultValue(false);
 
+                // Many-to-many implemented with explicit join entity:
                 // One Event has many EventRegistrations.
                 entity.HasOne(er => er.Event)
                     .WithMany(e => e.EventRegistrations)
@@ -242,6 +235,7 @@
                 entity.HasIndex(er => new { er.EventId, er.UserId })
                     .IsUnique();
 
+                // Useful for querying registrations by event or user.
                 entity.HasIndex(er => er.EventId);
                 entity.HasIndex(er => er.UserId);
             });
