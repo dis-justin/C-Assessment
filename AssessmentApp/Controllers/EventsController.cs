@@ -8,36 +8,30 @@ namespace AssessmentApp.Controllers
     [Route("api/events")]
     public class EventsController : ControllerBase
     {
-        // TODO: Add a private readonly field for the database context.
-        // Requirements:
-        // - Create a private readonly field named _dbContext.
-        // - The field type should be EventsDbContext.
+        private readonly EventsDbContext _dbContext;
+
+        public EventsController(EventsDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
 
 
+        [HttpGet]
+        public async Task<IActionResult> GetAllEvents(CancellationToken cancellationToken)
+        {
+            var events = await _dbContext.Events
+                .AsNoTracking()
+                .OrderBy(e => e.Name)
+                .Select(e => new EventDto
+                {
+                    Id = e.Id,
+                    Name = e.Name,
+                    Address = e.Address
+                })
+                .ToListAsync(cancellationToken);
 
-        // TODO: Add a constructor for EventsController.
-        // Requirements:
-        // - The constructor should be public.
-        // - Accept an EventsDbContext parameter named dbContext.
-        // - Use constructor dependency injection.
-        // - Assign the incoming dbContext parameter to the private _dbContext field.
-
-
-
-        // TODO: Create a GET endpoint for /api/events
-        // Requirements:
-        // - Return Task<IActionResult>.
-        // - Accept a CancellationToken parameter.
-        // - Query _dbContext.Events.
-        // - Sort the results by event name.
-        // - Project each Event into an EventDto.
-        // - Include Id, Name, and Address in the DTO.
-        // - Execute the query asynchronously
-        // - Return the result
-        //
-        // Expected route:
-        // GET /api/events
-
+            return Ok(events);
+        }
 
 
         // TODO: Create a GET endpoint for /api/events/{id}
