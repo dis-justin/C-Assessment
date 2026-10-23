@@ -8,8 +8,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<EventsDbContext>(options =>
 {
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"));
+    options.UseInMemoryDatabase("EventsDb");
 });
 
 builder.Services.AddEndpointsApiExplorer();
@@ -22,7 +21,7 @@ using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<EventsDbContext>();
 
-    dbContext.Database.Migrate();
+    //dbContext.Database.Migrate();
 
     DbSeeder.Seed(dbContext);
 }

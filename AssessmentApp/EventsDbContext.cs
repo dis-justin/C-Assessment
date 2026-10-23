@@ -51,9 +51,6 @@
                 entity.Property(e => e.Capacity)
                     .IsRequired();
 
-                entity.Property(e => e.IsActive)
-                    .HasDefaultValue(true);
-
                 entity.Property(e => e.CreatedAtUtc)
                     .IsRequired();
 
@@ -62,9 +59,6 @@
 
                 entity.Property(e => e.UpdatedBy)
                     .HasMaxLength(200);
-
-                entity.Property(e => e.IsDeleted)
-                    .HasDefaultValue(false);
 
                 // Many-to-one:
                 // Many Events belong to one Location.
@@ -112,9 +106,6 @@
                 entity.Property(l => l.UpdatedBy)
                     .HasMaxLength(200);
 
-                entity.Property(l => l.IsDeleted)
-                    .HasDefaultValue(false);
-
                 entity.HasIndex(l => l.Name);
             });
         }
@@ -142,9 +133,6 @@
 
                 entity.Property(ed => ed.UpdatedBy)
                     .HasMaxLength(200);
-
-                entity.Property(ed => ed.IsDeleted)
-                    .HasDefaultValue(false);
 
                 // One-to-many:
                 // One Event has many EventDates.
@@ -184,9 +172,6 @@
                 entity.Property(u => u.UpdatedBy)
                     .HasMaxLength(200);
 
-                entity.Property(u => u.IsDeleted)
-                    .HasDefaultValue(false);
-
                 // Email should usually be unique.
                 entity.HasIndex(u => u.Email)
                     .IsUnique();
@@ -214,9 +199,6 @@
 
                 entity.Property(er => er.UpdatedBy)
                     .HasMaxLength(200);
-
-                entity.Property(er => er.IsDeleted)
-                    .HasDefaultValue(false);
 
                 // Many-to-many implemented with explicit join entity:
                 // One Event has many EventRegistrations.
